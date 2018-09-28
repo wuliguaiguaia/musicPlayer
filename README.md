@@ -1,16 +1,5 @@
 # Music Player by Vue Stack
 
-## Static pages
-
-https://github.com/zce/music-player-pages
-
-## Clone it
-
-```bash
-$ git clone https://github.com/zce/music-player.git -b vue --depth 1
-$ cd music-player
-```
-
 ## Run it
 
 ### Install Dependencies
