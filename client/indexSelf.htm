@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MusicPlayer</title>
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/appSelf.css">
+</head>
+<body class="page flex-col">
+        <header class="header jusBetween-alignCenter">
+            <a v-link="{name:'home'}"><img src="assets/img/home-red.png" class="icon "    alt=""></a>
+            <h1>Media Player</h1>
+            <a v-link="{name:'list'}"><img src="assets/img/arrow-red.png" class="icon" alt=""></a>
+        </header>
+        <main class="flex-col">
+            <router-view></router-view>
+        </main>
+
+        <script id="home_templ" type="text/v-template">
+            <img class="home-img" src="assets/img/home.png" alt="">
+        </script>
+        <script id="list_templ" type="text/v-template">
+            <div class="list">
+                    <ol>
+                        <li v-for="item in list" >
+                            <a v-link="{ name: 'item', params: { id: item.id}}" class="align-center">
+                                <span class="num">{{pad(3,item.id)}}</span>
+                                <div class="info">
+                                    <h3 class="title">{{item.name}}</h3>
+                                    <span class="artist">{{item.artist}}<span>    
+                                </div>
+                                <span class="duration">{{converseTime(item.duration)}}</span>
+                                <div class="photo"><img :src="item.poster"></div>
+                            </a> 
+                        </li>
+                    </ol>
+                </div>
+        </script>
+        <script id="item_templ" type="text/v-template">
+            <div class="player flex-col">
+                <div class="head flex-col jusCenter-alignCenter">
+                    <img :src="item.poster" :style="{transform:'rotate('+item.current/item.duration*360*2 + 'deg)'}">
+                    <span class="duration">{{converseTime(item.duration - item.current)}}</sapn>
+                </div>
+                <h2 class="name">{{item.name}}</h2>
+                <h3>{{item.artist}}</h3>
+                <div class="lyric">
+                    <p class="prev">prevloremdffsdfsd</p>
+                    <p class="current">cutrrentloremdffsdfsd</p>
+                    <p class="next">nextloremdffsdfsd</p>
+                </div>
+                <input type="range"  :style="{backgroundSize: item.current/item.duration*100 + '% 100%'}" value="{{item.current}}" min=0 max="{{item.duration}}" v-model="item.current" @change = progress()>
+                <div class="controls">
+                    <button :class="{cycle:!item.random}" @click="cycleChange"></button>
+
+                    <button class="prev" @click="getSong().prev()"></button>
+
+                    <button class="open" :class="{ pause:!item.playing}" @click="play()"></button>
+
+                    <button class="next" @click="getSong().next()"></button>
+
+                    <!-- 变白 -->
+                    <button :class="{random:item.random}" @click="randomChange"></button>
+                </div>
+            </div>
+        </script>
+    <script src="libs/vue/vue.js"></script>
+    <script src="libs/vue-resource/vue-resource.js"></script>
+    <script src="libs/vue-router/vue-router.js"></script>
+    <script src="appSelf.js"></script>
+</body>
+</html>

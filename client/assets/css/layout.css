@@ -1,0 +1,165 @@
+
+html{
+    font-size: 62.5%;
+    color: #222;
+}
+
+body{
+    margin: 0;
+    background-color: #ccc;
+    color: #333;
+    font-family:"微软雅黑";
+}
+
+h1,h2,h3,h4,h5{
+    margin: 0;
+    font-weight: normal;
+}
+
+ul,li,ol{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+a{
+    color: #666;
+    text-decoration: none;
+}   
+
+a:hover{
+    color:#000;
+}
+
+dl,dt,dd,p{
+    margin: 0;
+    padding: 0;
+}
+
+img{
+    vertical-align: middle;
+}
+
+label,button{
+    cursor: pointer;    
+}
+
+button{
+    outline: none;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+}
+
+
+a:focus,
+button:focus,
+input[type=range]:focus{
+    outline: 0;
+}
+
+input{
+    padding-left:15px;
+}
+
+input[type=range]{
+    margin: 0;
+    width: 100%;
+}
+
+/* layout */
+.fr{
+    float: right;
+}
+
+.fl{
+    float: left;
+}
+
+.hide{
+    display:none;
+}
+
+.show{
+    display: block;
+}
+
+
+/*  flex */
+.flex{
+    display: flex;
+}
+
+.flex-row{
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-col{
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-between{
+    display: flex;
+    justify-content: space-between;
+}
+
+.flex-around{
+    display: flex;
+    justify-content: space-around;
+}
+
+.jusBetween-alignCenter{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.jusCenter-alignCenter{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.jusAround-alignCenter{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.jus-around{
+    display: flex;
+    justify-content: space-around;
+}
+
+.jus-between{
+    display: flex;
+    justify-content: space-between;
+}
+.jus-center{
+    display: flex;
+    justify-content: center;
+}
+.align-center{
+    display: flex;
+    align-items: center;
+}
+
+/* // icon */
+.icon{
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+/* // font */
+.small-font{
+    font-size: 12px;
+    -webkit-transform-origin-x: 0;
+    transform: scale(0.75);
+}
+
+
+
